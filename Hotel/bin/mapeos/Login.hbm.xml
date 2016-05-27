@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="datos.Login" table="login">
+
+<id column="idLogin" name="idLogin">
+<generator class="identity"/>
+</id>
+
+
+<property column="nickname" name="nickname" type="string"/>
+<property column="clave" name="clave" type="string"/>
+
+
+
+
+
+
+<one-to-one name="usuario" class="datos.Usuario" ></one-to-one>
+
+<many-to-one name="privilegio" class="datos.Privilegio"
+column="idPrivilegio" not-null="true"/>
+
+
+<set name="login" table="login" order-by="idlogin asc" inverse="true"
+lazy="true" fetch="select">
+<key column="idOferta" not-null="true" />
+<one-to-many class="datos.Oferta" />
+
+</set>
+<set name="login" table="login" order-by="idlogin asc" inverse="true"
+lazy="true" fetch="select">
+<key column="idTicketManteimiento" not-null="true" />
+<one-to-many class="datos.TicketMantenimiento" />
+
+</set>
+<set name="login" table="login" order-by="idlogin asc" inverse="true"
+lazy="true" fetch="select">
+<key column="idTicketConsumo" not-null="true" />
+<one-to-many class="datos.TicketConsumo" />
+
+</set>
+<set name="login" table="login" order-by="idlogin asc" inverse="true"
+lazy="true" fetch="select">
+<key column="idLimpieza" not-null="true" />
+<one-to-many class="datos.Limpieza" />
+
+</set>
+
+</class>
+
+
+
+
+
+
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="datos.Oferta" table="oferta">
+
+<id column="idOferta" name="idOferta">
+<generator class="identity"/>
+</id>
+
+
+<property column="oferta" name="oferta" type="string"/>
+<property column="cantidadDias" name="cantidadDias" type="int"/>
+<property column="valorOferta" name="valorOferta" type="float"/>
+<property column="fechaInicioOferta" name="fechaInicioOferta" type="GregorianCalendar"/>
+<property column="fechaFinOferta" name="fechaFinOferta" type="GregorianCalendar"/>
+
+
+
+<many-to-one name="login" class="datos.Login"
+column="idlogin" not-null="true"/>
+
+
+
+</class>
+</hibernate-mapping>

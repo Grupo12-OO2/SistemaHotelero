@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="datos.TicketMantenimiento" table="ticketMantenimiento">
+
+<id column="idTicketMantenimiento" name="idTicketMantenimiento">
+<generator class="identity"/>
+</id>
+
+<property column="ticketMantenimiento" name="ticketMantenimiento" type="string"/>
+<property column="fecha" name="fecha" type="GregorianCalendar"/>
+<property column="realizado" name="realizado" type="boolean"/>
+
+
+<many-to-one name="login" class="datos.Login"
+column="idLogin" not-null="true"/>
+
+
+
+</class>
+
+
+
+
+
+
+</hibernate-mapping>

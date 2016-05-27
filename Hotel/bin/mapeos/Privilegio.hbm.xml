@@ -1,0 +1,22 @@
+<hibernate-mapping>
+
+<class name="datos.Privilegio" table="privilegio">
+
+<id column="idPrivilegio" name="idPrivilegio">
+<generator class="identity"/>
+</id>
+
+
+<property column="privilegio" name="privilegio" type="int"/>
+<property column="descripcion" name="descripcion" type="string" not-null="false"/>
+
+
+<set name="login" table="login" order-by="idlogin asc" inverse="true"
+lazy="true" fetch="select">
+<key column="idPrivilegio" not-null="true" />
+<one-to-many class="datos.Login" />
+</set>
+
+
+</class>
+</hibernate-mapping>
